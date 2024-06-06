@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgLogo{
+    width: 40px;
+    margin-right: 10px;
+}
+.tituloLogo{
+    color: #3ac58b;
+    font-size: 30px;
+}
+
+
+.lineButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button{
+    margin-right: 10px;
+    padding: 10px 20px;
+    color: #3ac58b;
+    border: 1px solid #3ac58b;
+    border-radius: 8px;
+
+}
