@@ -1,0 +1,47 @@
+.bodyRecents{
+    color: var(--green2);
+    width: 40%;
+    margin: 50px 20px;
+    padding: 15px 25px;
+    background-color: var(--black2);
+    border-radius: 10px;
+}
+.bodyRecents h1{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.generoHq{
+    
+}
+.linhaHq{
+    display: flex;
+    padding: 10px 0;
+}
+.linhaHq img{
+    width: 200px;
+}
+.linhaHq .descricaoHq{
+    padding: 10px 15px;
+}
+.descricaoHq button{
+    font-size: 13px;
+    color: var(--blue3);
+    padding: 5px 8px;
+    border: 1px solid var(--blue3);
+    margin: 5px 3px;
+    border-radius: 5px;
+}
+
+.bodyFinalizadas{
+    color: var(--green2);
+    width: 40%;
+    margin: 50px 20px;
+    padding: 15px 25px;
+    background-color: var(--black2);
+    border-radius: 10px;
+}
+.bodyFinalizadas h1{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
