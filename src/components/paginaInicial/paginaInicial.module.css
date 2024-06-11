@@ -5,7 +5,6 @@
     padding: 20px;
     width: 100%;
 }
-
 .Logo{
     display: flex;
     justify-content: center;
@@ -33,4 +32,20 @@
     border: 1px solid #3ac58b;
     border-radius: 8px;
 
+}
+
+
+
+.bodyLayout{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 60px 120px;
+}
+ 
+.textInicial{
+    color: var(--green2);
+    width: 100%;
+    font-size: 30px;
+    margin: 40px 100px
 }

@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+.Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgLogo{
+    width: 40px;
+    margin-right: 10px;
+}
+.tituloLogo{
+    color: #3ac58b;
+    font-size: 30px;
+}
+.navigation{
+    color: var(--green1);
+}

@@ -6,6 +6,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --green1: #3ac58b;
+  --green2: #3ac58b;
+  --black1: #000;
+  --black2: #121212;
+  --black3: #373737;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +22,7 @@
 }
 
 body {
-  background-color: #121212;
+  background-color: var(--black2);
 }
 
 @layer utilities {

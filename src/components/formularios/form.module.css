@@ -1,0 +1,56 @@
+
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 400px;
+    background-color: black;
+    border: 1px solid var(--green1);
+}
+.tituloForm{
+    font-size: 30px;
+    color: var(--green2);
+}
+.inputForm{
+    font-size: 14px;
+    margin: 15px 0;
+    width: 90%;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: var(--black3);
+    border: 1px solid var(--green1);
+    color: var(--green1)
+}
+.inputSubmit{
+    font-size: 15px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: var(--green1);
+    width: 90%;
+    margin-top: 20px;
+}
+
+.bodyRegister{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linkRedirectForm{
+    color: var(--green2);
+    font-size: 13px;
+}
+.linkRedirectForm:hover{
+    color: var(--green2);
+    font-size: 13px;
+    text-decoration: underline;
+}
+.areaInputText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
