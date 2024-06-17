@@ -12,13 +12,7 @@ const FormLogin = () => {
 
   return (
     <main className={styles.bodyRegister}>
-      <form action="" method="post" className={styles.form} onSubmit={navigateToHome}>
-        <h1 className={styles.tituloForm}>Entrar</h1>
-        <input type="text" className={styles.inputForm} placeholder="Digite Seu email aqui" />
-        <input type="password" className={styles.inputForm} placeholder="Digite Sua senha aqui" />
-        <button type="button" className={styles.linkRedirectForm}>Não possui conta? Cadastre-se</button>
-        <button type="submit" className={styles.inputSubmit}>Entrar</button>
-      </form>
+      
     </main>
   );
 };

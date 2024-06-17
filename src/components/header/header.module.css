@@ -21,3 +21,61 @@
 .navigation{
     color: var(--green1);
 }
+
+.areaInputPesquisa{
+    background-color: var(--black2);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+
+}
+.areaInputPesquisa input{
+    width: 400px;
+    font-size: 16px;
+    background: none;
+    outline: none;
+    color: var(--black3);
+    padding-left: 5px;
+}
+.areaInputPesquisa button{
+    color: var(--green1);
+    margin-left: 8px;
+}
+
+
+.menuHamburg{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background-color: var(--black1);
+    border: 1px solid var(--black2);
+    transition: .3s;
+}
+.menuHamburg button{
+    color: var(--green1);
+    width: 100%;
+    padding: 15px;
+}
+.menuHamburg ul{
+
+}
+.menuHamburg ul button{
+    padding: 15px 30px;
+    width: 100%;
+    color: var(--green1);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--black15);
+    font-size: 18px;
+    transition: .2s;
+}
+.menuHamburg ul button p{
+    margin-left: 10px;
+}
+.menuHamburg ul button:hover{
+    background-color: var(--green1);
+    color: var(--black1);
+}

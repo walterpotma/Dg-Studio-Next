@@ -21,7 +21,7 @@
     width: 90%;
     padding: 8px;
     border-radius: 6px;
-    background-color: var(--black3);
+    background-color: var(--black2);
     border: 1px solid var(--green1);
     color: var(--green1)
 }

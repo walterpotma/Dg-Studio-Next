@@ -45,7 +45,101 @@
  
 .textInicial{
     color: var(--green2);
-    width: 100%;
+    width: 60%;
     font-size: 30px;
     margin: 40px 100px
+}
+
+
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 400px;
+    background-color: black;
+    border: 1px solid var(--green1);
+}
+.tituloForm{
+    font-size: 30px;
+    color: var(--green2);
+}
+.inputForm{
+    font-size: 14px;
+    margin: 15px 0;
+    width: 90%;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: var(--black2);
+    border: 1px solid var(--green1);
+    color: var(--green1);
+    outline: none;
+}
+.inputSubmit{
+    font-size: 15px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: var(--green1);
+    width: 90%;
+    margin-top: 20px;
+}
+
+.bodyRegister{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linkRedirectForm{
+    color: var(--green2);
+    font-size: 13px;
+}
+.linkRedirectForm:hover{
+    color: var(--green2);
+    font-size: 13px;
+    text-decoration: underline;
+}
+.areaInputText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media(max-width:820px){
+    .bodyLayout{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 40px;
+    }
+    .textInicial{
+        width: 100%;
+        font-size: 25px;
+        margin: 40px 20px
+    }
+}
+@media(max-width:400px){
+    .bodyLayout{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 0px;
+    }
+    .textInicial{
+        display: none;
+    }
+    .lineButton{
+        display: none;
+    }
+    .form{
+        width: 99%;
+        margin: 20px 0px;
+    }
+    .formResponse{
+        
+    }
 }
