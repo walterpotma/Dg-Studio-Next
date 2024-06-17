@@ -106,5 +106,7 @@
     }
 }
 @media(max-width:500px){
-
+    .menuHamburg{
+        width: 100%;
+    }
 }
