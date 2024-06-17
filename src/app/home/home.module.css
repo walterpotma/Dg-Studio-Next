@@ -4,3 +4,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media(max-width:820px){
+    .section{
+        flex-direction: column;
+    }
+}

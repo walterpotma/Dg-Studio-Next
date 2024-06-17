@@ -21,7 +21,6 @@
 .navigation{
     color: var(--green1);
 }
-
 .areaInputPesquisa{
     background-color: var(--black2);
     padding: 10px;
@@ -50,7 +49,7 @@
     width: 350px;
     height: 100%;
     background-color: var(--black1);
-    border: 1px solid var(--black2);
+    border-left: 1px solid var(--black2);
     transition: .3s;
 }
 .menuHamburg button{
@@ -78,4 +77,34 @@
 .menuHamburg ul button:hover{
     background-color: var(--green1);
     color: var(--black1);
+}
+
+@media(max-width:820px){
+    .areaInputPesquisa{
+        width: 300px;
+    }
+    .areaInputPesquisa input{
+        width: 100%;
+    }
+}
+@media(max-width:700px){
+    .areaInputPesquisa{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .areaInputPesquisa input{
+        width: 100%;
+    }
+    .header{
+        flex-direction: column;
+        align-items: start;
+    }
+    .navigation{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+@media(max-width:500px){
+
 }

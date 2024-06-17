@@ -45,3 +45,57 @@
     font-size: 25px;
     margin-bottom: 25px;
 }
+
+@media(max-width:900px){
+    .bodyRecents{
+        width: 50%;
+    }
+    .bodyFinalizadas{
+        width: 50%;
+    }
+}
+
+@media(max-width:820px){
+    .bodyRecents{
+        width: 70%;
+        margin: 50px 20px;
+        margin-bottom: 40px;
+    }
+    .bodyFinalizadas{
+        margin-top: 0px;
+        width: 70%;
+    }
+}
+@media(max-width:500px){
+    .bodyRecents{
+        width: 95%;
+        margin: 50px 20px;
+        margin-bottom: 40px;
+    }
+    .bodyFinalizadas{
+        margin-top: 0px;
+        width: 95%;
+    }
+    .bodyRecents img{
+        width: 200px;
+        margin: 0px auto;
+        max-height: 350px;
+    }
+    .bodyFinalizadas img{
+        width: 200px;
+        margin: 0px auto;
+        max-height: 350px;
+    }
+    .linhaHq{
+        display: flex;
+        flex-direction: column;
+    }
+    .descricaoHq button{
+        font-size: 11px;
+        color: var(--blue3);
+        padding: 3px 5px;
+        border: 1px solid var(--blue3);
+        margin: 5px 1px;
+        border-radius: 5px;
+    }
+}

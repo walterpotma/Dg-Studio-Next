@@ -122,7 +122,7 @@
         margin: 40px 20px
     }
 }
-@media(max-width:400px){
+@media(max-width:500px){
     .bodyLayout{
         flex-direction: column;
         justify-content: center;
@@ -138,8 +138,5 @@
     .form{
         width: 99%;
         margin: 20px 0px;
-    }
-    .formResponse{
-        
     }
 }
