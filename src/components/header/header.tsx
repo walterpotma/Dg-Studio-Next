@@ -2,7 +2,7 @@
 import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
 import { useState , useEffect } from "react"; 
-import { Search , AlignJustify , X , Home , BookOpenText , Shapes , Info } from "lucide-react"; 
+import { Search , AlignJustify , X , Home , BookOpenText , Shapes , Info , LogIn } from "lucide-react"; 
 const Header = () => {
 
   	const router = useRouter();
@@ -14,10 +14,6 @@ const Header = () => {
   	const navigateToHQs = (event: React.FormEvent) => {
     	event.preventDefault(); 
     	router.push('/hqs');
-  	};
-  	const navigateToGeneros = (event: React.FormEvent) => {
-    	event.preventDefault(); 
-    	router.push('/generos');
   	};
   	const navigateToSobre = (event: React.FormEvent) => {
     	event.preventDefault(); 
@@ -63,9 +59,8 @@ const Header = () => {
 					<ul>
 						<button onClick={navigateToHome}><Home/><p>Home</p></button>
 						<button onClick={navigateToHQs}><BookOpenText/><p>HQs</p></button>
-						<button onClick={navigateToGeneros}><Shapes/><p>Generos</p></button>
 						<button onClick={navigateToSobre}><Info/><p>Sobre</p></button>
-						<button onClick={navigateToLogin}><Info/><p>Sobre</p></button>
+						<button onClick={navigateToLogin}><LogIn/><p>login</p></button>
 					</ul>
 				</nav>
 			)}

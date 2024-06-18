@@ -1,11 +1,13 @@
 "use client"
 import Header from "@/components/header/header";
+import HQs from "@/components/hqs/hqs";
 
-const Home = () => {
+const Page = () => {
     return(
         <main>
             <Header/>
+            <HQs/>
         </main>
     );
 }
-export default Home;
+export default Page;
