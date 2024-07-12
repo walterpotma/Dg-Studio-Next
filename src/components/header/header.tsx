@@ -9,7 +9,7 @@ const Header = () => {
 
   	const navigateToHome = (event: React.FormEvent) => {
     	event.preventDefault(); 
-    	router.push('/home');
+    	router.push('/');
   	};
   	const navigateToHQs = (event: React.FormEvent) => {
     	event.preventDefault(); 
@@ -21,7 +21,7 @@ const Header = () => {
   	};
   	const navigateToLogin = (event: React.FormEvent) => {
     	event.preventDefault(); 
-    	router.push('/');
+    	router.push('/login');
   	};
 
 	const [isOpenMenu, setIsOpenMenu] = useState(false);

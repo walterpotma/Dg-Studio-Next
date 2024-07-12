@@ -1,7 +1,6 @@
 "use client"
 
 
-
 const MenuHamburg = () => {
     return(
         <main>
