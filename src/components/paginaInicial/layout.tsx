@@ -58,8 +58,9 @@ const PaginaInicial = () => {
                 </ul>
             </header>
             <main className={styles.bodyLayout}>
-				{Usuarios.map(usuario => (
-				<p className={styles.textInicial}>{usuario}</p>))}
+				{Usuarios.map((usuario, index) => (
+					<p key={index} className={styles.textInicial}>{usuario}</p>
+				))}
 				{isOpenRegister && (
 					<form action="" method="post" className={styles.form}>
 						<h1 className={styles.tituloForm}>Cadastre-se</h1>
