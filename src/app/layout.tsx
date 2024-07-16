@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,12 @@ export default function RootLayout({
         <link rel="shortcut icon" href="https://cdn0.iconfinder.com/data/icons/back-to-school/90/circle-school-learn-study-subject-literature-book-512.png" type="image/x-icon" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154336835421480"
         crossOrigin="anonymous"></script>
+
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

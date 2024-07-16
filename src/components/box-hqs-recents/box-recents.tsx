@@ -14,7 +14,7 @@ const boxRecents = () => {
                         <button>Sobrenatural</button>
                         <button>SuperHerois</button>
                     </div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequuntur error temporibus incidunt aspernatur delectus dolorum harum. Distinctio, itaque, exercitationem beatae eaque ducimus asperiores explicabo sint eligendi corrupti dolore consequuntur?</p>
+                    <p>The Odisseys mercenary: blade of fate</p>
                 </div>
             </div>
         </main>
