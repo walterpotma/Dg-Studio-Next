@@ -1,0 +1,101 @@
+.main{
+    width: 100%;
+    height: 100%;
+}
+.body{
+    width: 70%;
+    margin: 30px auto;
+    background-color: var(--black15);
+    border-radius: 15px;
+    color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.body .header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://i0.wp.com/www.crossovernerd.com/wp-content/uploads/2022/02/Guia_leitura_cronologico_homem_Aranha_Capa.jpg?fit=1920%2C1080&ssl=1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px 15px 0px 0px;
+}
+.body .header img {
+    margin-top: 100px;
+    width: 300px
+}
+.body .details{
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid lightskyblue;
+}
+.body .details h1{
+    font-weight: 600;
+    font-size: 25px;
+}
+.body .details .generoHq button{
+    font-size: 13px;
+    color: var(--blue3);
+    padding: 5px 8px;
+    border: 1px solid var(--blue3);
+    margin: 5px 3px;
+    border-radius: 5px;
+}
+.body .details p{
+    padding: 10px 50px;
+}
+.body .listcaps{
+    width: 100%;
+    border-top: 1px solid var(--black2);
+    padding: 0px 20px;
+}
+.quantCaps{
+    width: 100%;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: var(--black1);
+}
+.body .listcaps li{
+    color: var(--green1);
+    width: 100%;
+    padding: 20px 50px;
+    border-bottom: 1px solid var(--black2);
+    cursor: pointer;
+}
+.body .listcaps li:hover{
+    color: lightblue;
+    background-color: var(--black1);
+}
+.body .listcaps li:last-child{
+    border-bottom: none;
+}
+
+@media(max-width: 550px){
+    .body{
+        width: 100%;
+        border-radius: 0px;
+        margin: 0px auto;
+    }
+    .body .header {
+        border-radius: 0px;
+    }
+    .body .details{
+        padding: 20px 0px;
+    }
+    .body .details p{
+        padding: 10px 20px;
+    }
+    .body .listcaps{
+        width: 100%;
+        border-top: 1px solid var(--black2);
+        padding: 0px 0px;
+    }
+    .quantCaps{
+        padding: 10px;
+    }
+}

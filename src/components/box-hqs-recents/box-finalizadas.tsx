@@ -14,7 +14,8 @@ const boxFinalizadas = () => {
                         <button>Sobrenatural</button>
                         <button>SuperHerois</button>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, rem? Incidunt magnam alias veniam. Ipsa est rerum incidunt id natus necessitatibus explicabo nisi, totam quas aliquid qui assumenda unde excepturi!</p>
+                    <p>The Odisseys mercenary: blade of fate - Caps: 105
+                    </p>
                 </div>
             </div>
         </main>

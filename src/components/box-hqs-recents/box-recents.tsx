@@ -14,7 +14,7 @@ const boxRecents = () => {
                         <button>Sobrenatural</button>
                         <button>SuperHerois</button>
                     </div>
-                    <p>The Odisseys mercenary: blade of fate</p>
+                    <p>The Odisseys mercenary: blade of fate - Cap 1</p>
                 </div>
             </div>
         </main>
