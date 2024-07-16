@@ -1,13 +1,13 @@
 "use client"
 import Header from "@/components/header/header";
-import PageCaps from "@/components/caps/page";
+import Master from "@/components/master/page";
 
-const Home = () => {
+const Page = () => {
     return(
         <main>
             <Header/>
-            <PageCaps/>
+            <Master/>
         </main>
     );
 }
-export default Home;
+export default Page;
