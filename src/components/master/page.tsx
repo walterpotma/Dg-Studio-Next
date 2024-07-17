@@ -1,6 +1,6 @@
 "use client"
 import styles from "./master.module.css"
-import Donut from "./dountchart"
+import Donut from "./barchart"
 import LineChart from "./linechart"
 
 const Page = () => {
