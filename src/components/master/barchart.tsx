@@ -5,55 +5,67 @@ import { Chart } from 'react-google-charts';
 
 const Page = () => {
   const data = [
-    [{ type: "date", id: "Date" }, { type: "number", id: "Won/Loss" }],
-    [new Date(2012, 3, 13), 37032],
-    [new Date(2012, 3, 14), 38024],
-    [new Date(2012, 3, 15), 38024],
-    [new Date(2012, 3, 16), 38108],
-    [new Date(2012, 3, 17), 38229], 
+    ["Element", "Density", { role: "style" }],
+    ["Copper", 8.94, "#a6ecb7"],
+    ["Silver", 10.49, "#81d494"],
+    ["Gold", 19.30, "#53bb6b"],
+    ["Platinum", 21.45, "color: #28a745"]
   ];
 
   const options = {
-    title: "Red Sox Attendance",
-    height: 350,
-    calendar: {
-      cellSize: 10,
-      dayOfWeekLabel: {
-        fontName: 'Times-Roman',
-        fontSize: 12,
-        color: '#1a8763',
-        bold: true,
-        italic: true,
-      },
-      monthLabel: {
-        fontName: 'Times-Roman',
-        fontSize: 12,
-        color: '#981b48',
-        bold: true,
-        italic: true,
-      },
-      underMonthSpace: 16, // Bottom padding for the month labels.
-      yearLabel: {
-        fontName: 'Times-Roman',
-        fontSize: 32,
-        color: '#1A8763',
-        bold: true,
-        italic: true,
-      },
-    },
-    noDataPattern: {
-      backgroundColor: '#f8bbd0',
-      color: '#e91e63'
-    },
-    colorAxis: {
+    title: "Density of Precious Metals, in g/cm^3",
+    titleTextStyle: {
+      color: '#28a745', // Cor do título do eixo horizontal
+      italic: true,
+      fontSize: 24,
+    }, 
+    width: 600,
+    height: 300,
+    bar: { groupWidth: "95%" },
+    legend: { position: "none" },
+    backgroundColor: 'transparent', // Example customization
+    hAxis: {
+      title: 'Density',
       minValue: 0,
-      colors: ['#f6c7b6', '#ce502d'] // color gradient for values.
-    }
+      titleTextStyle: {
+        color: '#007bff', // Cor do título do eixo horizontal
+        italic: true,
+      },
+      gridlines: {
+        color: '404040',  // Cor das linhas principais
+      },
+      minorGridlines: {
+        color: '#303030',  // Cor das linhas menores
+      },  
+      textStyle: {
+        color: '#ffc107',
+        fontSize: 12,
+        italic: true,
+      },
+    },
+    vAxis: {
+      title: 'Element',
+      textStyle: {
+        color: '#ffc107',
+        fontSize: 12,
+        bold: true,
+      },
+      
+    },
+    
+    annotations: {
+      alwaysOutside: true,
+      textStyle: {
+        fontSize: 12,
+        auraColor: 'none',
+        color: '#fff',
+      },
+    },
   };
     return(
         <main className={styles.boxbar}>
           <Chart
-            chartType="Calendar"
+            chartType="BarChart"
             width="100%"
             height="300px"
             data={data}

@@ -3,6 +3,41 @@
     height: 100%;
     color: #0ec755;
 }
+.body{
+    width: 80%;
+    margin: 40px auto;
+}
+.section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttoncollun{
+    display: flex;
+    flex-direction: column;
+}
+.buttoncollun button{
+    width: 300px;
+    padding: 20px 30px;
+    color: var(--green1);
+    border: 1px solid var(--green1);
+    border-radius: 10px;
+    margin: 5px 0px;
+    transition: .2s;
+}
+.buttoncollun button:first-child{
+    margin-top: 0px;
+}
+.buttoncollun button:last-child{
+    margin-bottom: 0px;
+}
+.buttoncollun button:hover{
+    background-color: var(--green3);
+    color: var(--black1);
+    padding: 25px 35px;
+    margin: 1px 0px;
+    font-size: 20px;
+}
 .boxline{
     padding: 10px 0px 20px 0px;
     border: 1px solid var(--green1);
@@ -11,6 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 .boxbar{
     padding: 10px 0px;
@@ -21,4 +57,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #a6ecb7;
+}
+
+.vazio {
+    width: 300px;
+    height: 100%;
+    position: relative;
+    background-color: #242424;
+}
+.dashedLines {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+.dashedLine {
+    border-left: 1px dashed #000;
+    height: 100%;
+}
+.listhqs{
+    border: 1px solid var(--green1);
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: 100%;
+    margin: 0px 30px;
 }

@@ -30,7 +30,7 @@ const Page = () => {
     hAxis: {
       title: 'Year',
       textStyle: {
-        color: '#28a745', // Cor do texto do eixo horizontal
+        color: '#ffc107', // Cor do texto do eixo horizontal
       },
       titleTextStyle: {
         color: '#28a745', // Cor do título do eixo horizontal
