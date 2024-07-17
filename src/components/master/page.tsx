@@ -8,13 +8,11 @@ const Page = () => {
     return(
         <main className={styles.main}>
             <div className={styles.body}>
-                //
                 <div>
                     <div>
                         <LineChart/>
                         <Donut/>
                     </div>
-                    //
                 </div>
             </div>
         </main>
