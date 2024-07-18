@@ -81,6 +81,98 @@
     border: 1px solid var(--green1);
     border-radius: 10px;
     padding: 20px 30px;
-    width: 100%;
+    width: 700px;
     margin: 0px 30px;
+}
+.linefilter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filterhqs{
+    width: 120px;
+    background-color: var(--black15);
+    color: var(--green1);
+    border-radius: 3px;
+    outline: none;
+}
+.filterquant{
+    width: 50px;
+    background-color: var(--black15);
+    color: var(--green1);
+    border-radius: 3px;
+    outline: none;
+}
+.linepesquisa{
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.linepesquisa input{
+    width: 100%;
+    padding: 5px 0px 5px 10px;
+    border-radius: 6px 0px 0px 6px;
+    background-color: var(--black2);
+    outline: none;
+    color: lightblue;
+}
+.linepesquisa button{
+    padding: 5px 10px;
+    border-radius: 0px 6px 6px 0px;
+    background-color: var(--black2);
+}
+.linedata{
+    display: flex;
+    border: 1px;
+}
+.linedata ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--black15);
+    border-radius: 8px 0px 0px 8px;
+    color: var(--blue3);
+}
+.linedata ol li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--blue3);
+    padding: 10px 20px;
+}
+.linedata ol li:last-child{
+    border: none;
+}
+.linedata ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--green1);
+    background-color: #000;
+    border: 1px solid var(--black2);
+    border-left: none;
+    border-radius: 0px 8px 8px 0px;
+}
+.linedata ul li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--black2);
+    padding: 10px 20px;
+}
+.linedata ul li:last-child{
+    border: none;
+}
+
+
+@media(max-width: 600px){
+    .boxbar{
+        width: 100%; 
+    }
+    .boxline{
+        width: 100%;
+    }
 }
