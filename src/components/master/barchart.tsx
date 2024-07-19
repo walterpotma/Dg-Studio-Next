@@ -19,8 +19,10 @@ const Page = () => {
       italic: true,
       fontSize: 24,
     }, 
-    width: 600,
-    height: 300,
+    chartArea: {
+      width: '70%', // Largura da área do gráfico
+      height: '500px', // Altura da área do gráfico
+  },
     bar: { groupWidth: "95%" },
     legend: { position: "none" },
     backgroundColor: 'transparent', // Example customization

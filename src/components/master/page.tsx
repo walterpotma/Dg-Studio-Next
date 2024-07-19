@@ -24,7 +24,7 @@ const Page = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.listhqs}>
+                    {/* <div className={styles.listhqs}>
                         <div className={styles.linefilter}>
                             <select className={styles.filterhqs} id="">
                                 <option value="0">Recentes</option>
@@ -46,19 +46,7 @@ const Page = () => {
                             <input type="text" placeholder="Procurar HQs pelo Nome"/>
                             <button><Search/></button>
                         </div>
-                        <div className={styles.linedata}>
-                            <ol>
-                                <li>Nome</li>
-                                <li>capitulos</li>
-                                <li>autor</li>
-                            </ol>
-                            <ul>
-                                <li>The Odysseis Mercenary: blade of fate</li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </div> */}
                     <div className={styles.divgrafic}>
                         <LineChart/>
                         <Donut/>

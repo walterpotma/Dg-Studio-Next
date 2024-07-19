@@ -10,11 +10,12 @@
 .section{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .buttoncollun{
     display: flex;
     flex-direction: column;
+    margin-right: 50px;
 }
 .buttoncollun button{
     width: 300px;
@@ -24,6 +25,7 @@
     border-radius: 10px;
     margin: 5px 0px;
     transition: .2s;
+    
 }
 .buttoncollun button:first-child{
     margin-top: 0px;
@@ -123,56 +125,78 @@
     border-radius: 0px 6px 6px 0px;
     background-color: var(--black2);
 }
-.linedata{
-    display: flex;
-    border: 1px;
-}
-.linedata ol{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--black15);
-    border-radius: 8px 0px 0px 8px;
-    color: var(--blue3);
-}
-.linedata ol li{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid var(--blue3);
-    padding: 10px 20px;
-}
-.linedata ol li:last-child{
-    border: none;
-}
-.linedata ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--green1);
-    background-color: #000;
-    border: 1px solid var(--black2);
-    border-left: none;
-    border-radius: 0px 8px 8px 0px;
-}
-.linedata ul li{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid var(--black2);
-    padding: 10px 20px;
-}
-.linedata ul li:last-child{
-    border: none;
-}
 
 
-@media(max-width: 600px){
+
+@media(max-width: 1600px){
+    .body{
+        width: 100%;
+        padding: 0px 20px;
+    }
+}
+@media(max-width: 1000px){
     .boxbar{
-        width: 100%; 
+        width: 500px; 
     }
     .boxline{
-        width: 100%;
+        width: 500px;
+    }
+}
+@media(max-width: 900px){
+    .boxbar{
+        width: 400px; 
+    }
+    .boxline{
+        width: 400px;
+    }
+}
+@media(max-width: 800px){
+    .section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .boxbar{
+        width: 500px; 
+    }
+    .boxline{
+        width: 500px;
+    }
+    .vazio{
+        display: none;
+    }
+    .buttoncollun{
+        margin-bottom: 30px;
+        margin-right: 0;
+    }
+    .buttoncollun button{
+        width: 500px;
+    }
+}
+@media(max-width: 550px){
+    .boxbar{
+        width: 400px; 
+    }
+    .boxline{
+        width: 400px;
+    }
+    .buttoncollun button{
+        width: 400px;
+    }
+}
+@media(max-width: 410px){
+    .body{
+        margin-top: 0px;
+    }
+    .boxbar{
+        width: 360px; 
+    }
+    .boxline{
+        width: 360px;
+    }
+    .buttoncollun{
+        margin-bottom: 5px;
+    }
+    .buttoncollun button{
+        width: 360px;
     }
 }

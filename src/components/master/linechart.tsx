@@ -63,7 +63,7 @@ const Page = () => {
       1: { color: '#ff6347', lineWidth: 2 }, // Cor da série de dados de 'Expenses'
     },
       chartArea: {
-          width: '600px', // Largura da área do gráfico
+          width: '70%', // Largura da área do gráfico
           height: '500px', // Altura da área do gráfico
           backgroundColor: {
             stroke: '#000', // Cor da borda da área do gráfico
