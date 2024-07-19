@@ -1,9 +1,13 @@
 "use client"
+import { useEffect } from "react";
 import styles from "./box-hqs.module.css";
+import { UsuarioService } from "../../../service/UsuarioService";
 
 const boxRecents = () => {
+
     return (
         <main className={styles.bodyRecents}>
+
             <h1>HQs Recentes</h1>
             <div className={styles.linhaHq}>
                 <img src="https://cdn.ome.lt/1_qR1Az7HVWQMd6X7jowZrV0ixQ=/770x0/smart/uploads/conteudo/fotos/marvels_spider-man_2_hq_capa_completa.jpg" alt="" />

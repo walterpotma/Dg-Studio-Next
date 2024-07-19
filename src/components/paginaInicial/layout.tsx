@@ -4,14 +4,26 @@ import FormRegister from "../formularios/Register"
 import FormLogin from "../formularios/login"
 import {useState , useEffect} from "react";
 import axios from "axios";
+import { UsuarioService } from "../../../service/UsuarioService";
 
 const PaginaInicial = () => {
 
 	const [isOpenLogin , setIsOpenLogin] = useState(true);
     const [isOpenRegister , setIsOpenRegister] = useState(false);
-	const [Usuarios, setUsuarios] = useState([]);
-	const [error, setError] = useState(null);
+	const [usuario, setUsuario] = useState([]);
 
+	const usuarioService = new UsuarioService();
+    
+    useEffect(() => {
+        usuarioService.listarUsuarios()
+            .then((response) => {
+                console.log(response.data);
+				setUsuario(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, []);
 	const openLogin = () => {
 		setIsOpenLogin(true);
 		setIsOpenRegister(false);
@@ -22,28 +34,6 @@ const PaginaInicial = () => {
 		setIsOpenLogin(false);
 	};
 
-
-	const fetchDataAdd = async () => {
-		try {
-		  const response = await axios.get(
-			"https://localhost:7162/Api/Usuarios/ListarUsuarios"
-		  );
-		  return response.data;
-		} catch (error) {
-		  console.error("Erro ao buscar dados:", error);
-		  throw error;
-		}
-	  };
-	
-	  useEffect(() => {
-		fetchDataAdd()
-		  .then((data) => {
-			setUsuarios(data);
-		  })
-		  .catch((error) => {
-			setError(error); // Armazena o erro para renderização ou tratamento posterior
-		  });
-	  }, []); // O array vazio indica que este useEffect só é executado uma vez, equivalente a componentDidMount
 			
 	return(
 		<div>
@@ -58,9 +48,6 @@ const PaginaInicial = () => {
                 </ul>
             </header>
             <main className={styles.bodyLayout}>
-				{Usuarios.map((usuario, index) => (
-					<p key={index} className={styles.textInicial}>{usuario}</p>
-				))}
 				{isOpenRegister && (
 					<form action="" method="post" className={styles.form}>
 						<h1 className={styles.tituloForm}>Cadastre-se</h1>
