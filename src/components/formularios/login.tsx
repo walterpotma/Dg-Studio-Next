@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react";
-import { UsuarioService } from "../../../service/UsuarioService";
+import { UsuarioService } from "../../../service/WebApiService";
 import styles from "./form.module.css";
 import { useRouter } from 'next/navigation';
 
@@ -15,7 +15,7 @@ const FormLogin = () => {
 
     return (
         <main className={styles.bodyRegister}>
-          
+            
         </main>
     );
 };

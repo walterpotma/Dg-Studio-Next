@@ -126,6 +126,153 @@
     background-color: var(--black2);
 }
 
+/*------------add-hq--------------------------------------------------------------------------------------*/
+
+.mainAddHq{
+    width: 100%;
+}
+.bodyAddHq{
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--black15);
+    position: fixed;
+    top: 100px;
+    right: 0;
+    left: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0px 2000px rgba(0, 0, 0, 1);
+}
+.bodyAddHq form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:  0px auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.bodyAddHq form h1{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.bodyAddHq form label{
+    color: var(--blue3);
+    font-size: 20px;
+}
+.bodyAddHq form input{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--black1);
+    cursor: pointer;
+    color: #add8e6;
+}
+.bodyAddHq form button{
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--green3);
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+.bodyAddHq form button:hover{
+    background-color: var(--green3);
+    color: var(--black1);
+}
+
+/*------------add-cap--------------------------------------------------------------------------------------*/
+.buttonClose{
+    color: var(--red1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--red1);
+    width: 65px;
+}
+.buttonClose:hover{
+    color: var(--black1);
+    background-color: var(--red1);
+}
+.mainAddCap{
+    width: 100%;
+}
+.bodyAddCap{
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--black15);
+    position: fixed;
+    top: 100px;
+    right: 0;
+    left: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid var(--black1);
+    box-shadow: 0 0px 2000px rgba(0, 0, 0, 1);
+}
+.bodyAddCap form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:  0px auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.bodyAddCap form h1{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.bodyAddCap form label{
+    color: var(--blue3);
+    font-size: 20px;
+}
+.bodyAddCap form select{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--black1);
+    cursor: pointer;
+    color: #add8e6;
+}
+.bodyAddCap form input{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--black1);
+    cursor: pointer;
+    color: #add8e6;
+}
+.bodyAddCap form button{
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--green3);
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+.bodyAddCap form button:hover{
+    background-color: var(--green3);
+    color: var(--black1);
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
 
 
 @media(max-width: 1600px){

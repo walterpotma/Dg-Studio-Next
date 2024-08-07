@@ -13,10 +13,15 @@
 .linhaHq{
     display: flex;
     padding: 10px 0;
+    border-bottom: 1px solid gray;
 }
 .linhaHq img{
     width: 200px;
 }
+.linhaHq:last-child{
+    border: none;
+}
+
 .linhaHq .descricaoHq{
     padding: 10px 15px;
 }

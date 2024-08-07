@@ -3,8 +3,10 @@ import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
 import { useState , useEffect } from "react"; 
 import { Search , AlignJustify , X , Home , BookOpenText , Shapes , Info , LogIn } from "lucide-react"; 
-const Header = () => {
+import { useSearch } from "../../../Context/SearchContext"; 
 
+const Header = () => {
+	const { setSearchQuery } = useSearch();
   	const router = useRouter();
 
   	const navigateToHome = (event: React.FormEvent) => {
@@ -34,7 +36,9 @@ const Header = () => {
 		setIsOpenMenu(false);
 	};
 
-	
+	const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
+    };
 
 	return(
 		<main className={styles.header}>
@@ -43,7 +47,7 @@ const Header = () => {
 				<h1 className={styles.tituloLogo}>DG-Studio</h1>
 			</div>
 			<div className={styles.areaInputPesquisa}>
-				<input type="text" placeholder="Pesquisar"/>
+				<input type="text" placeholder="Pesquisar" onChange={handleSearchChange}/>
 				<button><Search/></button>
 			</div>
 			<nav className={styles.navigation}>

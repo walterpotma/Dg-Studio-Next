@@ -2,8 +2,32 @@
 import { useState , useEffect } from "react";
 import { Home } from "lucide-react";
 import styles from "./hqs.module.css"
+import { UsuarioService, CacheService, hqsService } from "../../../service/WebApiService";
+import {useRouter} from "next/navigation";
+
+interface HQ {
+    id: number;
+    nome: string;
+    capa: string; // Base64 string for the image
+    descricao: string;
+    generos: string[]; // Array of genres
+}
 
 const HQs = () => {
+    const [hqs, setHqs] = useState<HQ[]>([]);
+    const [router, useRouter] = useState([]);
+
+    useEffect(() => {
+        hqsService.listarHqs()  
+            .then((response) => {
+                console.log(response.data);
+                setHqs(response.data);
+            })
+            .catch((error) => {
+                console.error('Erro ao listar hq:', error);
+            });
+    }, [hqs]);
+
     return(
         <main className={styles.bodyHQs}>
             <nav className={styles.navigation}>
@@ -19,42 +43,18 @@ const HQs = () => {
                 <button>Suspense</button>
             </nav>
             <div className={styles.section}>
-                <div className={styles.linhaHq}>
-                    <img src="https://cdn.ome.lt/1_qR1Az7HVWQMd6X7jowZrV0ixQ=/770x0/smart/uploads/conteudo/fotos/marvels_spider-man_2_hq_capa_completa.jpg" alt="" />
-                    <div className={styles.descricaoHq}>
-                        <div className={styles.generoHq}>
-                            <button>Ação</button>
-                            <button>Romance</button>
-                            <button>Sobrenatural</button>
-                            <button>SuperHerois</button>
+                {hqs.map((hq) => (
+                    <div key={hq.id} className={styles.linhaHq}>
+                        {hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
+                        <div className={styles.descricaoHq}>
+                            <p>{hq.nome}</p>
+                            <div className={styles.generoHq}>
+                                <button>{hq.generos}</button>
+                            </div>
+                            <p>{hq.descricao}</p>
                         </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequuntur error temporibus incidunt aspernatur delectus dolorum harum. Distinctio, itaque, exercitationem beatae eaque ducimus asperiores explicabo sint eligendi corrupti dolore consequuntur?</p>
                     </div>
-                </div>
-                <div className={styles.linhaHq}>
-                    <img src="https://cdn.ome.lt/1_qR1Az7HVWQMd6X7jowZrV0ixQ=/770x0/smart/uploads/conteudo/fotos/marvels_spider-man_2_hq_capa_completa.jpg" alt="" />
-                    <div className={styles.descricaoHq}>
-                        <div className={styles.generoHq}>
-                            <button>Ação</button>
-                            <button>Romance</button>
-                            <button>Sobrenatural</button>
-                            <button>SuperHerois</button>
-                        </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequuntur error temporibus incidunt aspernatur delectus dolorum harum. Distinctio, itaque, exercitationem beatae eaque ducimus asperiores explicabo sint eligendi corrupti dolore consequuntur?</p>
-                    </div>
-                </div>
-                <div className={styles.linhaHq}>
-                    <img src="https://cdn.ome.lt/1_qR1Az7HVWQMd6X7jowZrV0ixQ=/770x0/smart/uploads/conteudo/fotos/marvels_spider-man_2_hq_capa_completa.jpg" alt="" />
-                    <div className={styles.descricaoHq}>
-                        <div className={styles.generoHq}>
-                            <button>Ação</button>
-                            <button>Romance</button>
-                            <button>Sobrenatural</button>
-                            <button>SuperHerois</button>
-                        </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequuntur error temporibus incidunt aspernatur delectus dolorum harum. Distinctio, itaque, exercitationem beatae eaque ducimus asperiores explicabo sint eligendi corrupti dolore consequuntur?</p>
-                    </div>
-                </div>
+                ))}
             </div>
         </main>
     );

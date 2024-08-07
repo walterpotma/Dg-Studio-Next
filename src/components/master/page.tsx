@@ -1,19 +1,40 @@
 "use client"
 import styles from "./master.module.css";
 import Donut from "./barchart";
+import AddHq from "./addhq";
+import AddCap from "./addcap";
 import LineChart from "./linechart";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 const Page = () => {
+
+    const [isOpenAddHq, setIsOpenAddHq] = useState(false);
+    const openAddHq = () => {
+        setIsOpenAddHq(true);
+        setIsOpenAddCap(false);
+    }
+    const closeAddHq = () => {
+        setIsOpenAddHq(false);
+    }
+
+    const [isOpenAddCap, setIsOpenAddCap] = useState(false);
+    const openAddCap = () => {
+        setIsOpenAddCap(true);
+        setIsOpenAddHq(false);
+    }
+    const closeAddCap = () => {
+        setIsOpenAddCap(false);
+    }
 
     return(
         <main className={styles.main}>
             <div className={styles.body}>
                 <div className={styles.section}>
                     <div className={styles.buttoncollun}>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
+                        <button onClick={openAddHq}>Adicionar Nova HQ</button>
+                        <button onClick={openAddCap}>Adiconar Capitulo</button>
+                        <button>Aprovar </button>
                         <div className={styles.vazio}>
                             <div className={styles.dashedLines}>
                                 <div className={styles.dashedLine}></div>
@@ -52,6 +73,16 @@ const Page = () => {
                         <Donut/>
                     </div>
                 </div>
+                {isOpenAddHq && (
+                    <div>
+                        <AddHq/>
+                    </div>
+                )}
+                {isOpenAddCap && (
+                    <div>
+                        <AddCap/>
+                    </div>
+                )}
             </div>
         </main>
     );
