@@ -37,7 +37,7 @@ const BoxRecents = () => {
                     <div className={styles.descricaoHq}>
                         <p>{hq.nome}</p>
                         <div className={styles.generoHq}>
-                            <button>{hq.generos.join(", ")}</button>
+                            <button>{hq.generos}</button>
                         </div>
                         <p>{hq.descricao}</p>
                     </div>
