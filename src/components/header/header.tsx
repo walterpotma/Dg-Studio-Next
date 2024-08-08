@@ -39,7 +39,10 @@ const Header = () => {
         router.push('/login');
     };
 
-    const openMenu = () => setIsOpenMenu(true);
+    const openMenu = () => { 
+		setIsOpenMenu(true);
+		setIsModalOpen(false);
+	}
     const closeMenu = () => setIsOpenMenu(false);
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,6 +58,7 @@ const Header = () => {
 
         setFilteredHqs(filtered);
         setIsModalOpen(filtered.length > 0);
+		setIsOpenMenu(false);
     };
 
     useEffect(() => {
