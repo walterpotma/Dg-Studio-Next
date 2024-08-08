@@ -39,11 +39,11 @@ const BoxRecents = () => {
         );
         setFilteredHqs(filtered);
     }, [searchQuery, hqs]);
-
+    
     return (
         <main className={styles.bodyRecents}>
             <h1>HQs Recentes</h1>
-            {filteredHqs.map((hq) => (
+            {hqs.map((hq) => (
                 <div key={hq.id} className={styles.linhaHq}>
                     {hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
                     <div className={styles.descricaoHq}>

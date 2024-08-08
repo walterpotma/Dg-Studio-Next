@@ -79,6 +79,41 @@
     color: var(--black1);
 }
 
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+
+.modal {
+    position: absolute;
+    top: 85px; /* Isso posiciona o modal logo abaixo da área de pesquisa */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    z-index: 1000;
+}
+.boxPesquisa{
+    background-color: var(--black2);
+    width: 60%;
+    margin: 0px auto;
+}
+.boxPesquisa img{
+    width: 200px;
+}
+.closeButton {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    /* estilize o botão de fechar conforme necessário */
+}
+
+.modalItem {
+    margin-bottom: 16px;
+    /* estilize os itens do modal conforme necessário */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
 @media(max-width:820px){
     .areaInputPesquisa{
         width: 300px;
