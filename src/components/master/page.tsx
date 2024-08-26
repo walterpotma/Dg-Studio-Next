@@ -33,7 +33,7 @@ const Page = () => {
                 <div className={styles.section}>
                     <div className={styles.buttoncollun}>
                         <button onClick={openAddHq}>Adicionar Nova HQ</button>
-                        <button onClick={openAddCap}>Adiconar Capitulo</button>
+                        <button onClick={openAddCap}>Adicionar Capitulo</button>
                         <button>Aprovar </button>
                         <div className={styles.vazio}>
                             <div className={styles.dashedLines}>
@@ -76,11 +76,13 @@ const Page = () => {
                 {isOpenAddHq && (
                     <div>
                         <AddHq/>
+                        <button onClick={closeAddHq} className={styles.buttonClose}>X</button>
                     </div>
                 )}
                 {isOpenAddCap && (
                     <div>
                         <AddCap/>
+                        <button onClick={closeAddCap} className={styles.buttonClose}>X</button>
                     </div>
                 )}
             </div>

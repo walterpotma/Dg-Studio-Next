@@ -8,7 +8,7 @@ import { CacheService, UsuarioService } from "../../../service/WebApiService";
 const Page = () => {
 
     const userId = typeof window !== 'undefined' ? window.localStorage.getItem('userId') : null;
-    console.log(userId);
+    //console.log(userId);
 
     const [cache, setCache] = useState([]);
     const [token, setToken] = useState('');
@@ -33,7 +33,7 @@ const Page = () => {
         if (token !== '') {  // Verifique se o token não está vazio
             UsuarioService.BuscarPorTokenJWT(token)
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     setUserData(response.data);
                 })
                 .catch((error) => {
@@ -41,9 +41,9 @@ const Page = () => {
                 });
         }
     }, [token]);
-    console.log(cache);
-    console.log(token);
-    console.log(userData);
+    //console.log(cache);
+    //console.log(token);
+    //console.log(userData);
 
     return(
         <main>

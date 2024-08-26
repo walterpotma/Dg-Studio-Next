@@ -2,9 +2,9 @@
 import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from "react"; 
-import { Search, AlignJustify, X, Home, BookOpenText, Info, LogIn } from "lucide-react"; 
+import { Search, AlignJustify, X, Home, BookOpenText, Info, LogIn, PersonStanding } from "lucide-react"; 
 import { useSearch } from "../../../Context/SearchContext"; 
-import { hqsService } from "../../../service/WebApiService"; // Atualize se necessário
+import { CacheService, hqsService, UsuarioService } from "../../../service/WebApiService"; // Atualize se necessário
 
 interface HQ {
     id: number;
@@ -12,6 +12,13 @@ interface HQ {
     capa: string; // Base64 string for the image
     descricao: string;
     generos: string; // Array of genres
+}
+interface UserData {
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    categoria: string;
 }
 
 const Header = () => {
@@ -21,6 +28,9 @@ const Header = () => {
     const [hqs, setHqs] = useState<HQ[]>([]);
     const [filteredHqs, setFilteredHqs] = useState<HQ[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [cache, setCache] = useState([]);
+    const [token, setToken] = useState('');
+    const [userData, setUserData] = useState<UserData | null>(null);
 
     const navigateToHome = (event: React.FormEvent) => {
         event.preventDefault(); 
@@ -37,6 +47,10 @@ const Header = () => {
     const navigateToLogin = (event: React.FormEvent) => {
         event.preventDefault(); 
         router.push('/login');
+    };
+    const navigateToProfile = (event: React.FormEvent) => {
+        event.preventDefault(); 
+        router.push('/profile');
     };
 
     const openMenu = () => { 
@@ -72,6 +86,53 @@ const Header = () => {
     }, []);
 
     const closeModal = () => setIsModalOpen(false);
+    const reabrirPesquisa = () => {
+        setIsModalOpen(true);
+    }
+
+
+    const userId = localStorage.getItem("userId")
+    useEffect(() => {
+        if (userId !== null) {
+            CacheService.listarCache(userId)
+                .then((response) => {
+                    console.log(response.data);
+                    setCache(response.data);
+                    // Aqui você define o token usando o valor do cache
+                    router.push('/controle');
+                })
+                .catch((error) => {
+                    console.error('Erro ao recuperar cache:', error);
+                });
+        }
+    }, [userId]);
+    
+    useEffect(() => {
+        if(userId !== null){
+            CacheService.listarToken(userId)
+                .then((response) => {
+                    console.log(response.data);
+                    setToken(response.data.valor);
+                })
+                .catch((error) => {
+                    console.error('erro ao localizar o token:' , error)
+                })
+        }
+    }, [token]);
+    useEffect(() => {
+        console.log(token)
+        if (token !== null) {  // Verifique se o token não está vazio
+            UsuarioService.BuscarPorTokenJWT(token)
+                .then((response) => {
+                    console.log(response.data);
+                    setUserData(response.data);
+                })
+                .catch((error) => {
+                    console.error('Erro ao recuperar dados do usuário:', error);
+                });
+        }
+    }, [token]);
+
 
     return (
         <main className={styles.header}>
@@ -81,7 +142,7 @@ const Header = () => {
             </div>
             <div className={styles.areaInputPesquisa}>
                 <input type="text" placeholder="Pesquisar" onChange={handleSearchChange} />
-                <button><Search /></button>
+                <button onClick={reabrirPesquisa}><Search /></button>
             </div>
             <nav className={styles.navigation}>
                 <button onClick={openMenu}>
@@ -105,23 +166,26 @@ const Header = () => {
                         <button onClick={navigateToHQs}><BookOpenText/><p>HQs</p></button>
                         <button onClick={navigateToSobre}><Info/><p>Sobre</p></button>
                         <button onClick={navigateToLogin}><LogIn/><p>login</p></button>
+                        <button onClick={navigateToProfile}><PersonStanding/><p>Profile</p></button>
                     </ul>
                 </nav>
             )}
             {isModalOpen && (
                 <div className={styles.modal}>
                     <div className={styles.boxPesquisa}>
-						<button onClick={closeModal} className={styles.closeButton}>Fechar</button>
-						<h2>HQs Filtradas</h2>
+						<div className={styles.headerPesquia}>
+                            <h2>Resultados</h2>
+                            <button onClick={closeModal} className={styles.closeButton}>Fechar</button>
+                        </div>
 						{filteredHqs.map((hq) => (
 							<div key={hq.id} className={styles.modalItem}>
 								{hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
 								<div className={styles.descricaoHq}>
-									<p>{hq.nome}</p>
+									<p className={styles.nomeHq}>{hq.nome}</p>
 									<div className={styles.generoHq}>
 										<button>{hq.generos}</button>
 									</div>
-									<p>{hq.descricao}</p>
+									<p className={styles.sinopseHq}>{hq.descricao}</p>
 								</div>
 							</div>
 						))}

@@ -19,6 +19,8 @@ const BoxRecents = () => {
     const router = useRouter();
     const [filteredHqs, setFilteredHqs] = useState<HQ[]>([]);
     const { searchQuery } = useSearch();
+    const [currentPage, setCurrentPage] = useState(1);
+	const [itemsPerPage] = useState(10);
 
     useEffect(() => {
         hqsService.listarHqs()  
@@ -40,21 +42,37 @@ const BoxRecents = () => {
         setFilteredHqs(filtered);
     }, [searchQuery, hqs]);
     
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredHqs.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
         <main className={styles.bodyRecents}>
             <h1>HQs Recentes</h1>
-            {hqs.map((hq) => (
+            {currentItems.map((hq) => (
                 <div key={hq.id} className={styles.linhaHq}>
                     {hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
                     <div className={styles.descricaoHq}>
-                        <p>{hq.nome}</p>
+                        <p className={styles.nomeHq}>{hq.nome}</p>
                         <div className={styles.generoHq}>
                             <button>{hq.generos}</button>
                         </div>
-                        <p>{hq.descricao}</p>
+                        <p className={styles.sinopseHq}>{hq.descricao}</p>
                     </div>
                 </div>
             ))}
+            <div className={styles.paginateHq}>
+                {Array.from(Array(Math.ceil(hqs.length / itemsPerPage)).keys()).map((number) => (
+                    <button
+                        key={number}
+                        onClick={() => paginate(number + 1)}
+                        className={`${styles.pageButton} ${currentPage === number + 1 ? styles.active : ''}`}
+                    >
+                        {number + 1}
+                    </button>
+                ))}
+			</div>
         </main>
     );
 }

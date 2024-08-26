@@ -128,18 +128,31 @@
 
 /*------------add-hq--------------------------------------------------------------------------------------*/
 
+.buttonClose{
+    color: var(--red1);
+    font-size: 30px;
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    cursor: pointer;
+}
+.buttonClose:hover{
+    color: var(--black1);
+    background-color: var(--red1);
+    font-size: 30px;
+}
 .mainAddHq{
     width: 100%;
+    height: 100%;
+    position: fixed; top: 0; left: 0; right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .bodyAddHq{
     width: 600px;
+    margin: 100px auto;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--black15);
-    position: fixed;
-    top: 100px;
-    right: 0;
-    left: 650px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,6 +187,17 @@
     cursor: pointer;
     color: #add8e6;
 }
+.inputGeneros{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--black1);
+    cursor: pointer;
+    color: var(--green1);
+}
 .bodyAddHq form button{
     width: 100%;
     background: transparent;
@@ -201,6 +225,10 @@
 }
 .mainAddCap{
     width: 100%;
+    width: 100%;
+    height: 100%;
+    position: fixed; top: 0; left: 0; right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .bodyAddCap{
     width: 600px;

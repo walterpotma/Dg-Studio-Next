@@ -41,6 +41,10 @@
 .linhaHq .descricaoHq{
     padding: 10px 15px;
 }
+.nomeHq{
+    font-size: 24px;
+    color: white;
+}
 .descricaoHq button{
     font-size: 13px;
     color: var(--blue3);
@@ -49,6 +53,40 @@
     margin: 5px 3px;
     border-radius: 5px;
 }
+.sinopseHq{
+    color: var(--green3);
+}
+.paginateHq{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+}
+.pageButton {
+    width: 30px;
+    margin: 3px;
+    padding: 5px 10px;
+    background-color: #2d2d2d;
+    color: var(--green3);
+    border: 1px solid var(--green3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pageButton:hover,
+.pageButton:focus {
+    background-color: var(--green3);
+    color: var(--black1);
+}
+
+.pageButton.active {
+    background-color: var(--green3);
+    color: var(--black1);
+}
+
 @media(max-width:1550px){
     .navigation{
         text-align: center;

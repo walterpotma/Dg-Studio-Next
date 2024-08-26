@@ -4,6 +4,7 @@
     align-items: center;
     padding: 20px;
     width: 100%;
+    background-color: var(--black1);
 }
 .Logo{
     display: flex;
@@ -84,7 +85,7 @@
 
 .modal {
     position: absolute;
-    top: 85px; /* Isso posiciona o modal logo abaixo da área de pesquisa */
+    top: 85px; 
     left: 0;
     right: 0;
     width: 100%;
@@ -92,14 +93,25 @@
     background: rgba(0, 0, 0, 0.6);
     border-radius: 4px;
     z-index: 1000;
+    color: gray;
+    overflow-y: auto;
 }
 .boxPesquisa{
-    background-color: var(--black2);
+    background-color: var(--black15);
     width: 60%;
     margin: 0px auto;
+    padding: 10px 40px;
+    border-radius: 0px 0px 10px 10px;
 }
 .boxPesquisa img{
-    width: 200px;
+    width: 150px;
+    margin-right: 20px;
+}
+.headerPesquia{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 10px;
 }
 .closeButton {
     background: transparent;
@@ -111,7 +123,31 @@
 
 .modalItem {
     margin-bottom: 16px;
-    /* estilize os itens do modal conforme necessário */
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--black2);
+    display: flex;
+}
+.modalItem:last-child{
+    border: none;
+    margin-bottom: 0;
+}
+.nomeHq{
+    font-size: 20px;
+    color: white;
+}
+.generoHq{
+
+}
+.generoHq button{
+    font-size: 13px;
+    color: var(--blue3);
+    padding: 5px 8px;
+    border: 1px solid var(--blue3);
+    margin: 5px 3px;
+    border-radius: 5px;
+}
+.sinopseHq{
+    color: var(--blue3);
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------*/

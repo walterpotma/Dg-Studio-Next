@@ -24,7 +24,7 @@ const PaginaInicial = () => {
 		event.preventDefault();
 		try {
 		  	const response = await UsuarioService.Login(email, senha);
-		  	console.log(response.data);
+		  	//console.log(response.data);
 			localStorage.setItem('userId', response.data.userId);
 			setUserId(response.data.userId);
 		}catch (error) {
@@ -37,7 +37,7 @@ const PaginaInicial = () => {
         if (userId !== null) {
             CacheService.listarCache(userId)
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     setCache(response.data);
 					router.push('/controle');
                 })
@@ -52,7 +52,7 @@ const PaginaInicial = () => {
 		event.preventDefault();
 		try {
 		  	const response = await UsuarioService.Registro(nomeRegistro, emailRegistro, senhaRegistro, categoriaRegistro);
-		  	console.log(response.data);
+		  	//console.log(response.data);
 		}catch (error) {
 		  	console.error('Erro ao fazer login:', error);
 		}
