@@ -91,7 +91,7 @@ const Header = () => {
     }
 
 
-    const userId = localStorage.getItem("userId")
+    const userId = typeof window !== 'undefined' ? window.localStorage.getItem("userId") : null;
     useEffect(() => {
         if (userId !== null) {
             CacheService.listarCache(userId)
