@@ -43,6 +43,10 @@ export class hqsService{
 	static listarHqs(){
         return axiosInstance.get('/Hqs/ListarHqs');
     }
+	static listarHqPorId(hqId: number){
+        return axiosInstance.get(`/Hqs/ListarPorId/${hqId}`);
+    }
+    
     static AddHqs(nomeHq: string, capaBase64: string, bannerBase64: string, autorHq: string, sinopseHq: string, generoHq: string, statusHq: string){
         return axiosInstance.post('/Hqs/add', {
             nome: nomeHq,
@@ -54,7 +58,24 @@ export class hqsService{
             status: statusHq
         });
     }
+    static AddCap(hq: string, capitulo: number){
+        return axiosInstance.post('/Capitulos/Add', {
+            hq: hq,
+            capitulo: capitulo
+        });
+    }
 	static listarCapitulos(){
         return axiosInstance.get('/Capitulos/ListarCapitulos');
+    }
+	static lastCap(hq: string){
+        return axiosInstance.get(`/Capitulos/ListarCapHq/${hq}`);
+    }
+
+    static AddPage(capitulo_id: number, numero: number, imagem: string){
+        return axiosInstance.post('/Paginas/Add', {
+            capitulo_id,
+            numero,
+            imagem
+        });
     }
 }

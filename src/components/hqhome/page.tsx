@@ -1,44 +1,104 @@
-"use client"
+"use client";
+import { useRouter } from "next/navigation";
+import { useSearch } from "../../../Context/SearchContext";
+import { hqsService } from "../../../service/WebApiService";
 import styles from "./hqhome.module.css";
-import {useState , useEffect} from "react";
+import { useState, useEffect } from "react";
+
+interface HQ {
+    id: number;
+    nome: string;
+    capa: string; // Base64 string for the image
+    banner: string; // Base64 string for the image
+    descricao: string;
+    generos: string; // Array of genres
+}
 
 const Page = () => {
+    const [hq, setHq] = useState<HQ | null>(null); // Start with null
+    const [filteredHqs, setFilteredHqs] = useState<HQ[]>([]);
+    const { searchQuery } = useSearch();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(10);
+
+    const hqId = typeof window !== 'undefined' ? window.localStorage.getItem("hqId") : null;
+
+    useEffect(() => {
+        if (hqId) {
+            const hqIdNumber = parseInt(hqId, 10); // Converte a string para um número
+            hqsService.listarHqPorId(hqIdNumber)  
+                .then((response) => {
+                    console.log('Dados recebidos:', response.data);
+                    setHq(response.data);
+                })
+                .catch((error) => {
+                    console.error('Erro ao listar HQ:', error);
+                });
+        }
+    }, [hqId]);
 
     
-    return(
+    useEffect(() => {
+        if (hq) {
+            // Filtra HQs com base na consulta de pesquisa
+            const filtered = [hq].filter((hq: HQ) =>
+                hq.nome.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                hq.descricao.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                hq.generos.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setFilteredHqs(filtered);
+        }
+    }, [searchQuery, hq]);
+
+    return (
         <main className={styles.main}>
             <div className={styles.body}>
-                <div className={styles.header}>
-                    <img src="https://cdn.ome.lt/1_qR1Az7HVWQMd6X7jowZrV0ixQ=/770x0/smart/uploads/conteudo/fotos/marvels_spider-man_2_hq_capa_completa.jpg" alt="" />
-                </div>
-                <div className={styles.details}>
-                    <h1>Spider-Man 2</h1>
-                    <div className={styles.generoHq}>
-                        <button>Ação</button>
-                        <button>Romance</button>
-                        <button>Sobrenatural</button>
-                        <button>SuperHerois</button>
-                    </div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, voluptatum cum. Repudiandae a quam aspernatur, molestiae, esse maiores eveniet voluptate cum aliquam qui sed at aliquid ab. Nisi, distinctio porro.</p>
-                </div>
-                <h1 className={styles.quantCaps}>Capitulos: </h1>
+                {filteredHqs.length > 0 ? (
+                    <>
+                        {filteredHqs.map((hq) => (
+                            <div className={styles.header}
+                                style={{
+                                    background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(data:image/jpeg;base64,${hq.banner})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
+                                key={hq.id}
+                            >
+                                {hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
+                            </div>
+                        ))}
+                        {filteredHqs.map((hq) => (
+                            <div className={styles.details} key={hq.id}>
+                                <h1>{hq.nome}</h1>
+                                <div className={styles.generoHq}>
+                                    <button>{hq.generos}</button>
+                                </div>
+                                <p>{hq.descricao}</p>
+                            </div>
+                        ))}
+                    </>
+                ) : (
+                    <p>Nenhuma HQ encontrada.</p>
+                )}
+
+                <h1 className={styles.quantCaps}>Capítulos: </h1>
                 <div className={styles.listcaps}>
-                    
                     <ul>
-                        <li>Capitulo 1</li>
-                        <li>Capitulo 2</li>
-                        <li>Capitulo 3</li>
-                        <li>Capitulo 4</li>
-                        <li>Capitulo 5</li>
-                        <li>Capitulo 6</li>
-                        <li>Capitulo 7</li>
-                        <li>Capitulo 8</li>
-                        <li>Capitulo 9</li>
-                        <li>Capitulo 10</li>
+                        <li>Capítulo 1</li>
+                        <li>Capítulo 2</li>
+                        <li>Capítulo 3</li>
+                        <li>Capítulo 4</li>
+                        <li>Capítulo 5</li>
+                        <li>Capítulo 6</li>
+                        <li>Capítulo 7</li>
+                        <li>Capítulo 8</li>
+                        <li>Capítulo 9</li>
+                        <li>Capítulo 10</li>
                     </ul>
                 </div>
             </div>
         </main>
     );
-}
+};
+
 export default Page;

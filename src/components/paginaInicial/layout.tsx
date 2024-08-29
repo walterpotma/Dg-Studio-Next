@@ -24,7 +24,6 @@ const PaginaInicial = () => {
 		event.preventDefault();
 		try {
 		  	const response = await UsuarioService.Login(email, senha);
-		  	//console.log(response.data);
 			localStorage.setItem('userId', response.data.userId);
 			setUserId(response.data.userId);
 		}catch (error) {
@@ -39,7 +38,7 @@ const PaginaInicial = () => {
                 .then((response) => {
                     //console.log(response.data);
                     setCache(response.data);
-					router.push('/controle');
+					router.push('/');
                 })
                 .catch((error) => {
                     console.error('Erro ao recuperar cache:', error);

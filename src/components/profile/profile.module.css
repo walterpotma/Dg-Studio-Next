@@ -1,0 +1,36 @@
+.body{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 40px 20px;
+}
+.section{
+    width: 800px;
+    height: 500px;
+    border: 1px solid var(--green2);
+    border-radius: 10px;
+    display: flex;
+}
+.acessUser{
+    background-color: var(--black15);
+    width: 35%;
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+}
+.dataUser{
+    background-color: var(--black2);
+    width: 65%;
+    height: 100%;
+    border-radius: 0px 10px 10px 0px;
+}
+.teste1{
+    width: 300px;
+    height: 700px;
+    background-color: var(--green2);
+}
+.teste2{
+    width: 300px;
+    height: 700px;
+    background-color: var(--green2);
+}

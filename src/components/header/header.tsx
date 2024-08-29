@@ -99,7 +99,6 @@ const Header = () => {
                     console.log(response.data);
                     setCache(response.data);
                     // Aqui você define o token usando o valor do cache
-                    router.push('/controle');
                 })
                 .catch((error) => {
                     console.error('Erro ao recuperar cache:', error);
@@ -138,7 +137,7 @@ const Header = () => {
         <main className={styles.header}>
             <div className={styles.Logo}>
                 <img className={styles.imgLogo} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-round-2/254000/70-512.png" alt="" />
-                <h1 className={styles.tituloLogo}>DG-Studio</h1>
+                <button className={styles.tituloLogo} onClick={navigateToHome}>DG-Studio</button>
             </div>
             <div className={styles.areaInputPesquisa}>
                 <input type="text" placeholder="Pesquisar" onChange={handleSearchChange} />
