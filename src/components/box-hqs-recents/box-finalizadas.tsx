@@ -13,7 +13,7 @@ interface HQ {
     generos: string; // Array of genres
 }
 
-const boxFinalizadas = () => {
+const BoxFinalizadas = () => {
     const [hqsFinalizadas, setHqsFinalizadas] = useState<HQ[]>([]);
     const router = useRouter();
     const [filteredHqs, setFilteredHqs] = useState<HQ[]>([]);
@@ -92,4 +92,4 @@ const boxFinalizadas = () => {
         </main>
     );
 }
-export default boxFinalizadas;
+export default BoxFinalizadas;
