@@ -46,6 +46,16 @@ export class hqsService{
 	static listarHqPorId(hqId: number){
         return axiosInstance.get(`/Hqs/ListarPorId/${hqId}`);
     }
+	static listarHqPorNome(nomeHq: string){
+        return axiosInstance.get(`/Hqs/ListarPorNome/${nomeHq}`);
+    }
+	
+	static listarHqFinalizada(){
+        return axiosInstance.get(`/Hqs/ListarFinalizadas`);
+    }
+	static listarHqAndamento(){
+        return axiosInstance.get(`/Hqs/ListarAndamentos`);
+    }
     
     static AddHqs(nomeHq: string, capaBase64: string, bannerBase64: string, autorHq: string, sinopseHq: string, generoHq: string, statusHq: string){
         return axiosInstance.post('/Hqs/add', {
@@ -64,13 +74,21 @@ export class hqsService{
             capitulo: capitulo
         });
     }
-	static listarCapitulos(){
-        return axiosInstance.get('/Capitulos/ListarCapitulos');
+	static listarCapId(capId: string){
+        return axiosInstance.get(`/Capitulos/ListarPorId/${capId}`);
+    }
+	static listarNovosCapitulos(){
+        return axiosInstance.get('/Capitulos/ListarUltimosCapHq');
+    }
+	static listarTodosCapitulos(nomeHq: string){
+        return axiosInstance.get(`/Capitulos/ListarTodosCapHq/${nomeHq}`);
     }
 	static lastCap(hq: string){
-        return axiosInstance.get(`/Capitulos/ListarCapHq/${hq}`);
+        return axiosInstance.get(`/Capitulos/ListarUltimoCapHq/${hq}`);
     }
-
+    static listarPaginasCap(capitulo_id: string){
+        return axiosInstance.get(`/Paginas/ListarPorId/${capitulo_id}`);
+    }
     static AddPage(capitulo_id: number, numero: number, imagem: string){
         return axiosInstance.post('/Paginas/Add', {
             capitulo_id,

@@ -132,6 +132,10 @@ const Header = () => {
         }
     }, [token]);
 
+    const handleViewHqPage = (hqId: string | number) => {
+        localStorage.setItem('hqId', hqId.toString());
+        router.push('/pagehq');
+    }
 
     return (
         <main className={styles.header}>
@@ -164,8 +168,8 @@ const Header = () => {
                         <button onClick={navigateToHome}><Home/><p>Home</p></button>
                         <button onClick={navigateToHQs}><BookOpenText/><p>HQs</p></button>
                         <button onClick={navigateToSobre}><Info/><p>Sobre</p></button>
-                        <button onClick={navigateToLogin}><LogIn/><p>login</p></button>
-                        <button onClick={navigateToProfile}><PersonStanding/><p>Profile</p></button>
+                        {/*/<button onClick={navigateToLogin}><LogIn/><p>login</p></button>*/}
+                        {/*<button onClick={navigateToProfile}><PersonStanding/><p>Profile</p></button>*/}
                     </ul>
                 </nav>
             )}
@@ -177,7 +181,7 @@ const Header = () => {
                             <button onClick={closeModal} className={styles.closeButton}>Fechar</button>
                         </div>
 						{filteredHqs.map((hq) => (
-							<div key={hq.id} className={styles.modalItem}>
+							<button key={hq.id} className={styles.modalItem} onClick={() => handleViewHqPage(hq.id)}>
 								{hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
 								<div className={styles.descricaoHq}>
 									<p className={styles.nomeHq}>{hq.nome}</p>
@@ -186,7 +190,7 @@ const Header = () => {
 									</div>
 									<p className={styles.sinopseHq}>{hq.descricao}</p>
 								</div>
-							</div>
+							</button>
 						))}
 					</div>
                 </div>

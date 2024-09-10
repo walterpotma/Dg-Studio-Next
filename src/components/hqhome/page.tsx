@@ -13,6 +13,11 @@ interface HQ {
     descricao: string;
     generos: string; // Array of genres
 }
+interface Caps {
+    id: number;
+    hq: string;
+    capitulo: number;
+}
 
 const Page = () => {
     const [hq, setHq] = useState<HQ | null>(null); // Start with null
@@ -20,6 +25,9 @@ const Page = () => {
     const { searchQuery } = useSearch();
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
+    const [allCaps, setAllCaps] = useState<Caps[]>([]);
+    const [nomeHq, setNomeHq] = useState('');
+    const router = useRouter();
 
     const hqId = typeof window !== 'undefined' ? window.localStorage.getItem("hqId") : null;
 
@@ -30,14 +38,26 @@ const Page = () => {
                 .then((response) => {
                     console.log('Dados recebidos:', response.data);
                     setHq(response.data);
+                    setNomeHq(response.data.nome);
                 })
                 .catch((error) => {
                     console.error('Erro ao listar HQ:', error);
                 });
         }
     }, [hqId]);
+    useEffect(() => {
+        if (nomeHq) {  // Aguarda até nomeHq ser definido
+            hqsService.listarTodosCapitulos(nomeHq)
+                .then((response) => {
+                    console.log(response.data);
+                    setAllCaps(response.data);
+                })
+                .catch((error) => {
+                    console.error('Erro ao listar todos os caps:', error);
+                });
+        }
+    }, [nomeHq]);
 
-    
     useEffect(() => {
         if (hq) {
             // Filtra HQs com base na consulta de pesquisa
@@ -49,6 +69,11 @@ const Page = () => {
             setFilteredHqs(filtered);
         }
     }, [searchQuery, hq]);
+
+    const handleViewHqPage = (capId: string | number) => {
+        localStorage.setItem('capId', capId.toString());
+        router.push('/capitulo');
+    }
 
     return (
         <main className={styles.main}>
@@ -80,22 +105,15 @@ const Page = () => {
                 ) : (
                     <p>Nenhuma HQ encontrada.</p>
                 )}
-
-                <h1 className={styles.quantCaps}>Capítulos: </h1>
-                <div className={styles.listcaps}>
-                    <ul>
-                        <li>Capítulo 1</li>
-                        <li>Capítulo 2</li>
-                        <li>Capítulo 3</li>
-                        <li>Capítulo 4</li>
-                        <li>Capítulo 5</li>
-                        <li>Capítulo 6</li>
-                        <li>Capítulo 7</li>
-                        <li>Capítulo 8</li>
-                        <li>Capítulo 9</li>
-                        <li>Capítulo 10</li>
-                    </ul>
-                </div>
+                
+                <h1 className={styles.quantCaps}>Capítulos: {allCaps.length} </h1>
+                {allCaps.map((caps) =>
+                    <button className={styles.listcaps} onClick={() => handleViewHqPage(caps.id)}>
+                        <ul>
+                            <li>Capitulo: {caps.capitulo}</li>
+                        </ul>
+                    </button>
+                )}                
             </div>
         </main>
     );

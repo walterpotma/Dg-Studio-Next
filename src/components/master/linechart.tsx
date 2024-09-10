@@ -1,16 +1,57 @@
 "use client"
 import styles from "./master.module.css"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
+import { useSearch } from "../../../Context/SearchContext";
+import { useRouter } from "next/navigation";
+import { hqsService } from "../../../service/WebApiService";
 
+
+interface HQ {
+  id: number;
+  nome: string;
+  capa: string; // Base64 string for the image
+  descricao: string;
+  generos: string; // Array of genres
+}
 const Page = () => {
+    const [hqsFinalizadas, setHqsFinalizadas] = useState<HQ[]>([]);
+    const [hqsAndamento, setHqsAndamento] = useState<HQ[]>([]);
+    const router = useRouter();
+    const [filteredHqs, setFilteredHqs] = useState<HQ[]>([]);
+    const { searchQuery } = useSearch();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(10);
+
+    useEffect(() => {
+      hqsService.listarHqFinalizada()  
+            .then((response) => {
+                console.log(response.data);
+                setHqsFinalizadas(response.data);
+            })
+            .catch((error) => {
+                console.error('Erro ao listar hq:', error);
+            });
+    }, []);
+    useEffect(() => {
+      hqsService.listarHqAndamento()  
+            .then((response) => {
+                console.log(response.data);
+                setHqsAndamento(response.data);
+            })
+            .catch((error) => {
+                console.error('Erro ao listar hq:', error);
+            });
+    }, []);
+
   const data = [
-    ['Year', 'Sales', 'Expenses', ],
-    ['2004', 1000, 400],
-    ['2005', 1170, 460],
-    ['2006', 660, 1120],
-    ['2007', 1030, 540],
+      ['HQs Por Mês', 'Finalizadas', 'Andamentos', ],
+      ['janeiro', hqsFinalizadas.length, hqsAndamento.length],
+      ['Fevereiro', hqsFinalizadas.length, hqsAndamento.length,],
+      ['Março', hqsFinalizadas.length, hqsAndamento.length],
+      ['Abril', hqsFinalizadas.length, hqsAndamento.length],
   ];
+  console.log()
 
   const options = {
     title: 'Company Performance',
