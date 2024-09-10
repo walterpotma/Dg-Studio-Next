@@ -108,7 +108,7 @@ const Page = () => {
                 
                 <h1 className={styles.quantCaps}>Capítulos: {allCaps.length} </h1>
                 {allCaps.map((caps) =>
-                    <button className={styles.listcaps} onClick={() => handleViewHqPage(caps.id)}>
+                    <button className={styles.listcaps} onClick={() => handleViewHqPage(caps.id)} key={caps.id}>
                         <ul>
                             <li>Capitulo: {caps.capitulo}</li>
                         </ul>
