@@ -76,7 +76,7 @@ const BoxRecents = () => {
     if(newCaps.length < 1){
         return(
             <main className={styles.bodyRecents}>
-            <h1>HQs Finalizadas</h1>
+            <h1>Ultimos Capitulos</h1>
             <br /><br />
             <p>Nenhum Capitulo recente</p>
             <br /><br /><br />
@@ -92,7 +92,7 @@ const BoxRecents = () => {
 
     return (
         <main className={styles.bodyRecents}>
-            <h1>HQs Recentes</h1>
+            <h1>Ultimos Capitulos</h1>
             {currentItems.map(({id, capitulo, hq}) => (
                 <button key={id} className={styles.linhaHq} onClick={() =>hq && handleViewHqPage(hq.id)}>
                     {hq && hq.capa && <img src={`data:image/jpeg;base64,${hq.capa}`} alt="HQ" />}
